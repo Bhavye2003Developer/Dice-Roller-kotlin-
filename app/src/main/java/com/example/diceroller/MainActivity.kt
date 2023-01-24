@@ -1,25 +1,31 @@
 package com.example.diceroller
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.diceroller.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var image : ImageView
+//    private lateinit var image : ImageView
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
 
-        val rollButton : Button = findViewById(R.id.roll)
-        image = findViewById(R.id.imageView)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val rootView = binding.root
+        setContentView(rootView)
 
-        Toast.makeText(this,"Welcome to my app",Toast.LENGTH_SHORT).show()
-        rollButton.setOnClickListener {
-            setDiceImage(image)
+
+//        val rollButton : Button = findViewById(R.id.roll)
+//        image = findViewById(R.id.imageView)
+
+        Toast.makeText(this,"Welcome to my app ",Toast.LENGTH_SHORT).show()
+        binding.roll.setOnClickListener {
+            setDiceImage(binding.imageView)
         }
     }
     private fun setDiceImage(image : ImageView){
